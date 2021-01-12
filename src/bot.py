@@ -42,16 +42,22 @@ async def on_message(message):
 
 
 # Reply user with a woke greeting
-@client.command()
+@client.command(description='Please say hi to me!')
 async def hello(ctx):
     msg = f'Hi {ctx.author.mention}'
     await ctx.send(msg)
 
 
 # Send the users the guide to contribute to this bot
-@client.command(name='getstarted')
+@client.command(name='getstarted',
+                description='Learn how to get started on making me smarter')
 async def get_started(ctx):
-    print('test')
+    msg = discord.Embed(
+        description="""Thank you for your interests in teaching me what I don't know. \
+        First of all, if you have not yet created a GitHub account. \
+        Please go to https://www.github.com and create one."""
+    )
+    await ctx.send(embed=msg)
 
 # Start the discord bot with the specified token
 client.run(DISCORD_TOKEN)
