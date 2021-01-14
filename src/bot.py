@@ -87,5 +87,53 @@ and he will be able to help you if needed."""
     )
     await ctx.send(embed=msg)
 
+
+# Send the users the output of homework according to the homework number
+@client.command()
+async def hwoutput(ctx, *args):
+    msg = None
+
+    if args[0] == '1':
+        msg = discord.Embed(
+            description=f"""Problem 1 solution follows:
+Root 1: 0.6496430521608568
+Root 2: 1.3036902811724767
+
+Problem 2 solution follows:
+1/2: 0.5
+1/3: 0.3333333333333333
+1/4: 0.25
+1/5: 0.2
+1/6: 0.16666666666666666
+1/7: 0.14285714285714285
+1/8: 0.125
+1/9: 0.1111111111111111
+1/10: 0.1
+
+Problem 3 solution follows:
+Triangular number 10 via loop: 55
+Triangular number 10 via formula: 55.0
+
+Problem 4 solution follows:
+10!: 3628800
+
+Problem 5 solution follows:
+10!: 3628800
+9!: 362880
+8!: 40320
+7!: 5040
+6!: 720
+5!: 120
+4!: 24
+3!: 6
+2!: 2
+1!: 1
+
+Problem 6 solution follows:
+e: 2.7182818011463845"""
+        )
+
+    await ctx.send(embed=msg)
+
 # Start the discord bot with the specified token
 client.run(DISCORD_TOKEN)
